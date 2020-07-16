@@ -1,0 +1,16 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'ASPhotoBrowserView_Example' do
+  
+  pod 'YBImageBrowser', '~> 3.0'
+  pod 'YBImageBrowser/Video'
+  pod 'ZLPhotoBrowser', '~> 3.2'
+
+  target 'ASPhotoBrowserView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,38 @@
+PODS:
+  - SDWebImage (5.8.1):
+    - SDWebImage/Core (= 5.8.1)
+  - SDWebImage/Core (5.8.1)
+  - YBImageBrowser (3.0.9):
+    - YBImageBrowser/Core (= 3.0.9)
+  - YBImageBrowser/Core (3.0.9):
+    - SDWebImage (>= 5.0.0)
+    - YYImage
+  - YBImageBrowser/Video (3.0.9):
+    - YBImageBrowser/Core
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - ZLPhotoBrowser (3.2.0):
+    - SDWebImage
+
+DEPENDENCIES:
+  - YBImageBrowser (~> 3.0)
+  - YBImageBrowser/Video
+  - ZLPhotoBrowser (~> 3.2)
+
+SPEC REPOS:
+  trunk:
+    - SDWebImage
+    - YBImageBrowser
+    - YYImage
+    - ZLPhotoBrowser
+
+SPEC CHECKSUMS:
+  SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
+  YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  ZLPhotoBrowser: 3748fdbeb2b28961c2495d15131dbf413082e1b9
+
+PODFILE CHECKSUM: d17185a87736bd91cff5a0e2e92499be8aab94af
+
+COCOAPODS: 1.9.1
