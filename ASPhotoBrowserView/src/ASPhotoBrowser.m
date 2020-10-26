@@ -114,4 +114,20 @@
     }
 }
 
+- (void)removeDataAtIndex:(NSArray <NSNumber*>*)indexes currentPage:(NSInteger)currentPage
+{
+    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:self.photoBrowser.dataSourceArray];
+    for (NSNumber *indexNum in indexes) {
+        [tmpArr removeObjectAtIndex:[indexNum unsignedIntegerValue]];
+    }
+    self.photoBrowser.dataSourceArray = tmpArr;
+    [self.photoBrowser reloadData];
+    [self.photoBrowser setCurrentPage:currentPage];
+}
+
+- (void)hide
+{
+    [self.photoBrowser hide];
+}
+
 @end

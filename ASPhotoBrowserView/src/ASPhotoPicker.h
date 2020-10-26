@@ -94,6 +94,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL allowOpenCamera;
 
 /**
+ 底部工具条背景色，默认 rgb(44, 45, 46)
+ */
+@property (nonatomic, strong) UIColor *bottomViewBgColor;
+
+/**
+ 导航条背景色，默认 rgb(44, 45, 46)
+ */
+@property (nonatomic, strong) UIColor *navBarColor;
+
+/**
+ 底部工具栏按钮 可交互 状态背景颜色，默认rgb(80, 169, 56)
+ */
+@property (nonatomic, strong) UIColor *bottomBtnsNormalBgColor;
+
+/**
+ 底部工具栏按钮 不可交互 状态背景颜色，默认rgb(39, 80, 32)
+ */
+@property (nonatomic, strong) UIColor *bottomBtnsDisableBgColor;
+
+/**
+ 选中图片右上角index background color, 默认rgb(80, 169, 56)
+ */
+@property (nonatomic, strong) UIColor *indexLabelBgColor;
+
+/**
  打开相册,sender为父视图
 */
 - (void)openLibraryFromSender:(UIViewController *)sender animated:(BOOL)animated;

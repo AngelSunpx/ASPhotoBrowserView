@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'ASPhotoBrowserView/src/*.{h,m,c,mm}'
   s.resources = "ASPhotoBrowserView/src/Resources/*.{png,jpg,gif}"
   
-  s.dependency 'YBImageBrowser', '~> 3.0'
+  s.dependency 'YBImageBrowser'
   s.dependency 'YBImageBrowser/Video'
   s.dependency 'ZLPhotoBrowser', '~> 3.2'
   

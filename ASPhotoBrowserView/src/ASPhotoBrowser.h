@@ -44,6 +44,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param superView 从指定父视图显示
 - (void)showFromSuperView:(UIView * __nullable)superView;
 
+/// 移除数据源中的某个元素（含reload）
+/// @param indexes 索引数组
+/// @param currentPage 当前索引
+- (void)removeDataAtIndex:(NSArray <NSNumber*>*)indexes currentPage:(NSInteger)currentPage;
+
+/// 隐藏
+- (void)hide;
+
 @end
 
 NS_ASSUME_NONNULL_END

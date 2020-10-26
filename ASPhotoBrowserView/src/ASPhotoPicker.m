@@ -70,11 +70,13 @@
     ac.configuration.maxRecordDuration = self.maxRecordDuration;
     ac.configuration.maxVideoDuration = self.maxRecordDuration;
     ac.configuration.maxEditVideoTime = self.maxRecordDuration;
-    ac.configuration.cameraProgressColor = self.circleProgressColor;
     ac.configuration.allowTakePhotoInLibrary = self.allowOpenCamera;
-
-    //如调用的方法无sender参数，则该参数必传
-    ac.sender = sender;
+    if (self.circleProgressColor) ac.configuration.cameraProgressColor = self.circleProgressColor;
+    if (self.navBarColor) ac.configuration.navBarColor = self.navBarColor;
+    if (self.bottomViewBgColor) ac.configuration.bottomViewBgColor = self.bottomViewBgColor;
+    if (self.indexLabelBgColor) ac.configuration.indexLabelBgColor = self.indexLabelBgColor;
+    if (self.bottomBtnsNormalBgColor) ac.configuration.bottomBtnsNormalBgColor = self.bottomBtnsNormalBgColor;
+    if (self.bottomBtnsDisableBgColor) ac.configuration.bottomBtnsDisableBgColor = self.bottomBtnsDisableBgColor;
 
     // 选择回调
     [ac setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
@@ -84,9 +86,9 @@
     }];
     // 调用相册
     if (animated) {
-        [ac showPreviewAnimated:YES];
+        [ac showPreviewAnimated:YES sender:sender];
     }else{
-        [ac showPhotoLibrary];
+        [ac showPhotoLibraryWithSender:sender];
     }
 }
 
