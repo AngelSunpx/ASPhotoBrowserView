@@ -10,14 +10,22 @@
 #import <YBImageBrowser/YBImageBrowserDelegate.h>
 #import "ASPhotoToolViewHandler.h"
 
+typedef NS_ENUM(NSInteger, ASDataType) {
+    /**图片*/
+    ASDataImage = 0,
+    /**视频*/
+    ASDataVideo = 1
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ASPhotoModel : NSObject
 
 @property (nonatomic, copy) NSString *imageUrl;     //资源地址（本地path或远程url）
-@property (nonatomic, assign) NSInteger dataType;   //0：图片，1：视频
+@property (nonatomic, assign) ASDataType dataType;  //资源类型
 @property (nonatomic, assign) BOOL isRemote;        //是否远程资源
 @property (nonatomic, strong) UIView *fromView;     //映射的父View
+@property (nonatomic, strong) UIImage *localImage;  //本地图片
 
 @end
 

@@ -47,20 +47,26 @@
     NSMutableArray *datas = [NSMutableArray array];
     [dataSource enumerateObjectsUsingBlock:^(ASPhotoModel *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        if (obj.dataType == 0) {
+        if (obj.dataType == ASDataImage) {
             YBIBImageData *data = [YBIBImageData new];
             if (obj.isRemote) {
                 data.imageURL = [NSURL URLWithString:obj.imageUrl];
             }else{
-                if ([fileManager fileExistsAtPath:obj.imageUrl]) {
-                    data.imagePath = obj.imageUrl;
+                if (obj.localImage) {
+                    data.image = ^UIImage * _Nullable{
+                        return obj.localImage;
+                    };
                 }else{
-                    data.imageName = obj.imageUrl;
+                    if ([fileManager fileExistsAtPath:obj.imageUrl]) {
+                        data.imagePath = obj.imageUrl;
+                    }else{
+                        data.imageName = obj.imageUrl;
+                    }
                 }
             }
             if (obj.fromView) data.projectiveView = obj.fromView;
             [datas addObject:data];
-        }else if (obj.dataType == 1){
+        }else if (obj.dataType == ASDataVideo){
             YBIBVideoData *data = [YBIBVideoData new];
             if (obj.isRemote) {
                 data.videoURL = [NSURL URLWithString:obj.imageUrl];
