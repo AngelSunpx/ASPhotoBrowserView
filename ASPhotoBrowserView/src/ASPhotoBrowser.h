@@ -21,11 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ASPhotoModel : NSObject
 
-@property (nonatomic, copy) NSString *imageUrl;     //资源地址（本地path或远程url）
-@property (nonatomic, assign) ASDataType dataType;  //资源类型
-@property (nonatomic, assign) BOOL isRemote;        //是否远程资源
-@property (nonatomic, strong) UIView *fromView;     //映射的父View
-@property (nonatomic, strong) UIImage *localImage;  //本地图片
+@property (nonatomic, copy) NSString        *originalUrl;   //原图地址
+@property (nonatomic, strong) NSString      *originalPath;  //本地原图路径）
+@property (nonatomic, strong) UIImage       *originalImage; //本地原图
+@property (nonatomic, copy) NSString        *thumbUrl;      //缩略图地址（当不为空时，将使用此地址，优先级大于fromView.image）
+@property (nonatomic, strong) UIImage       *thumbImage;    //本地缩略图（当不为空时，将使用此image，优先级大于thumbUrl）
+@property (nonatomic, copy) NSString        *imageName;     //本地图片（资源类型）
+@property (nonatomic, assign) ASDataType    dataType;       //资源类型
+@property (nonatomic, strong) UIView        *fromView;      //映射的父View（当thumbUrl为空、thumbImage为空以及fromView是ImageView时，将使用image作为缩略图）
 
 @end
 

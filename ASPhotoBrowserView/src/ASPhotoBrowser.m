@@ -12,14 +12,6 @@
 
 @implementation ASPhotoModel
 
-- (instancetype)init
-{
-    if (self = [super init]) {
-        _imageUrl = @"";
-    }
-    return self;
-}
-
 @end
 
 @interface ASPhotoBrowser()
@@ -49,32 +41,34 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if (obj.dataType == ASDataImage) {
             YBIBImageData *data = [YBIBImageData new];
-            if (obj.isRemote) {
-                data.imageURL = [NSURL URLWithString:obj.imageUrl];
-            }else{
-                if (obj.localImage) {
-                    data.image = ^UIImage * _Nullable{
-                        return obj.localImage;
-                    };
-                }else{
-                    if ([fileManager fileExistsAtPath:obj.imageUrl]) {
-                        data.imagePath = obj.imageUrl;
-                    }else{
-                        data.imageName = obj.imageUrl;
-                    }
-                }
+            data.defaultLayout.verticalFillType = YBIBImageFillTypeFullWidth;
+            
+            if (obj.originalUrl)  data.imageURL = [NSURL URLWithString:obj.originalUrl];
+            if (obj.originalPath) data.imagePath = obj.originalPath;
+            if (obj.originalImage) {
+                data.image = ^UIImage * _Nullable{
+                    return obj.originalImage;
+                };
             }
+            if (obj.thumbUrl) data.thumbURL = [NSURL URLWithString:obj.thumbUrl];
+            if (obj.thumbImage) data.thumbImage = obj.thumbImage;
+            if (obj.imageName) data.imageName = obj.imageName;
             if (obj.fromView) data.projectiveView = obj.fromView;
             [datas addObject:data];
         }else if (obj.dataType == ASDataVideo){
             YBIBVideoData *data = [YBIBVideoData new];
-            if (obj.isRemote) {
-                data.videoURL = [NSURL URLWithString:obj.imageUrl];
+            if (obj.originalUrl) {
+                data.videoURL = [NSURL URLWithString:obj.originalUrl];
             }else{
-               if ([fileManager fileExistsAtPath:obj.imageUrl]) {
-                    data.videoURL = [NSURL fileURLWithPath:obj.imageUrl];
+                if (obj.originalPath) {
+                    if ([fileManager fileExistsAtPath:obj.originalPath]) {
+                         data.videoURL = [NSURL fileURLWithPath:obj.originalPath];
+                     }else{
+                         NSString *path = [[NSBundle mainBundle] pathForResource:obj.originalPath.stringByDeletingPathExtension ofType:obj.originalPath.pathExtension];
+                         data.videoURL = [NSURL fileURLWithPath:path];
+                     }
                 }else{
-                    NSString *path = [[NSBundle mainBundle] pathForResource:obj.imageUrl.stringByDeletingPathExtension ofType:obj.imageUrl.pathExtension];
+                    NSString *path = [[NSBundle mainBundle] pathForResource:obj.originalPath.stringByDeletingPathExtension ofType:obj.originalPath.pathExtension];
                     data.videoURL = [NSURL fileURLWithPath:path];
                 }
             }
