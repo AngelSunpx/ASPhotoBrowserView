@@ -17,6 +17,7 @@
 		42A22E0D24C0018F007F0DC8 /* localVideo0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42A22E0A24C0018F007F0DC8 /* localVideo0.mp4 */; };
 		42A22E0E24C0018F007F0DC8 /* localImage1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 42A22E0B24C0018F007F0DC8 /* localImage1.gif */; };
 		42A22E0F24C0018F007F0DC8 /* localImage0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42A22E0C24C0018F007F0DC8 /* localImage0.jpg */; };
+		527C2722254B9B2D00A133E6 /* ASPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 527C2721254B9B2D00A133E6 /* ASPhotoManager.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -63,6 +64,8 @@
 		42A22E0A24C0018F007F0DC8 /* localVideo0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = localVideo0.mp4; sourceTree = "<group>"; };
 		42A22E0B24C0018F007F0DC8 /* localImage1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = localImage1.gif; sourceTree = "<group>"; };
 		42A22E0C24C0018F007F0DC8 /* localImage0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = localImage0.jpg; sourceTree = "<group>"; };
+		527C2720254B9B2D00A133E6 /* ASPhotoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASPhotoManager.h; sourceTree = "<group>"; };
+		527C2721254B9B2D00A133E6 /* ASPhotoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPhotoManager.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ASPhotoBrowserView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASPhotoBrowserView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 				42A22DF724BFFE0A007F0DC8 /* ASPhotoBrowser.h */,
 				42A22DF824BFFE0A007F0DC8 /* YBImageBrowser */,
 				42A22E0124BFFE0B007F0DC8 /* ASPhotoPicker.m */,
+				527C2720254B9B2D00A133E6 /* ASPhotoManager.h */,
+				527C2721254B9B2D00A133E6 /* ASPhotoManager.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				6003F59E195388D20070C39A /* ASAppDelegate.m in Sources */,
 				42A22E0224BFFE0B007F0DC8 /* ASPhotoToolViewHandler.m in Sources */,
 				42A22E0324BFFE0B007F0DC8 /* ASPhotoBrowser.m in Sources */,
+				527C2722254B9B2D00A133E6 /* ASPhotoManager.m in Sources */,
 				6003F5A7195388D20070C39A /* ASViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				42A22E0824BFFE0B007F0DC8 /* ASPhotoPicker.m in Sources */,
