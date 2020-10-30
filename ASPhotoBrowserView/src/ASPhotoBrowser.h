@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 初始化方法
 /// @param dataSource 数据源
 /// @param toolHandler 自定义工具栏
-- (instancetype)initWithDataSource:(NSArray<ASPhotoModel *> *)dataSource toolHandler:(ASPhotoToolViewHandler * __nullable)toolHandler;
+- (instancetype)initWithDataSource:(NSArray<ASPhotoModel *> *)dataSource toolHandler:(id __nullable)toolHandler;
 
 /// show view
 /// @param superView 从指定父视图显示

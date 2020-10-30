@@ -17,7 +17,7 @@
 @interface ASPhotoBrowser()
 
 /// 自定义工具栏
-@property (nonatomic, strong) ASPhotoToolViewHandler *customToolHandler;
+@property (nonatomic, strong) id customToolHandler;
 /// 浏览视图
 @property (nonatomic, strong) YBImageBrowser *photoBrowser;
 
@@ -25,7 +25,7 @@
 
 @implementation ASPhotoBrowser
 
-- (instancetype)initWithDataSource:(NSArray<ASPhotoModel *> *)dataSource toolHandler:(ASPhotoToolViewHandler * __nullable)toolHandler
+- (instancetype)initWithDataSource:(NSArray<ASPhotoModel *> *)dataSource toolHandler:(id __nullable)toolHandler
 {
     if (self = [super init]) {
         [self initToolHandler:toolHandler];
@@ -82,23 +82,24 @@
     self.photoBrowser.toolViewHandlers = @[self.customToolHandler];
 }
 
-- (void)initToolHandler:(ASPhotoToolViewHandler * __nullable)toolHandler
+- (void)initToolHandler:(id __nullable)toolHandler
 {
     if (toolHandler) {
         self.customToolHandler = toolHandler;
     }else{
         self.customToolHandler = [ASPhotoToolViewHandler new];
-        self.customToolHandler.canDownload = YES;
-        self.customToolHandler.currentPageFontSize = 20;
-        self.customToolHandler.totalPageFontSize = 15;
+        ((ASPhotoToolViewHandler*)self.customToolHandler).canDownload = YES;
+        ((ASPhotoToolViewHandler*)self.customToolHandler).currentPageFontSize = 20;
+        ((ASPhotoToolViewHandler*)self.customToolHandler).totalPageFontSize = 15;
+        
+        __strong typeof(self) strongSelf = self;
+        [((ASPhotoToolViewHandler*)self.customToolHandler) setBackClickBlock:^{
+            [strongSelf.photoBrowser hide];
+            strongSelf.photoBrowser = nil;
+            strongSelf.customToolHandler = nil;
+            strongSelf.delegate = nil;
+        }];
     }
-    __strong typeof(self) strongSelf = self;
-    [self.customToolHandler setBackClickBlock:^{
-        [strongSelf.photoBrowser hide];
-        strongSelf.photoBrowser = nil;
-        strongSelf.customToolHandler = nil;
-        strongSelf.delegate = nil;
-    }];
 }
 
 - (void)showFromSuperView:(UIView * __nullable)superView
