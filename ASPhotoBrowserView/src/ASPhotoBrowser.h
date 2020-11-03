@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString        *imageName;     //本地图片（资源类型）
 @property (nonatomic, assign) ASDataType    dataType;       //资源类型
 @property (nonatomic, strong) UIView        *fromView;      //映射的父View（当thumbUrl为空、thumbImage为空以及fromView是ImageView时，将使用image作为缩略图）
+@property (nonatomic, strong) id            extraData;      //额外扩展参数
 
 @end
 

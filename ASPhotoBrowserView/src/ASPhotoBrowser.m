@@ -54,6 +54,7 @@
             if (obj.thumbImage) data.thumbImage = obj.thumbImage;
             if (obj.imageName) data.imageName = obj.imageName;
             if (obj.fromView) data.projectiveView = obj.fromView;
+            if (obj.extraData) data.extraData = obj.extraData;
             [datas addObject:data];
         }else if (obj.dataType == ASDataVideo){
             YBIBVideoData *data = [YBIBVideoData new];
@@ -73,6 +74,7 @@
                 }
             }
             if (obj.fromView) data.projectiveView = obj.fromView;
+            if (obj.extraData) data.extraData = obj.extraData;
             [datas addObject:data];
         }
     }];
