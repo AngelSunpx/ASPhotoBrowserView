@@ -119,6 +119,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *indexLabelBgColor;
 
 /**
+ 是否允许选择原图，默认YES
+ */
+@property (nonatomic, assign) BOOL allowSelectOriginal;
+
+/**
  打开相册,sender为父视图
 */
 - (void)openLibraryFromSender:(UIViewController *)sender animated:(BOOL)animated;

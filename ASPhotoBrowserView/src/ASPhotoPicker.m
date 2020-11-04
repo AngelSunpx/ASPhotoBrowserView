@@ -71,6 +71,7 @@
     ac.configuration.maxVideoDuration = self.maxRecordDuration;
     ac.configuration.maxEditVideoTime = self.maxRecordDuration;
     ac.configuration.allowTakePhotoInLibrary = self.allowOpenCamera;
+    ac.configuration.allowSelectOriginal = self.allowSelectOriginal;
     if (self.circleProgressColor) ac.configuration.cameraProgressColor = self.circleProgressColor;
     if (self.navBarColor) ac.configuration.navBarColor = self.navBarColor;
     if (self.bottomViewBgColor) ac.configuration.bottomViewBgColor = self.bottomViewBgColor;
