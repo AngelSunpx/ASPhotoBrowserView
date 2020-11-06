@@ -9,6 +9,7 @@
 #import "ASPhotoBrowser.h"
 #import <YBImageBrowser/YBImageBrowser.h>
 #import <YBImageBrowser/YBIBVideoData.h>
+#import "SDImageCache.h"
 
 @implementation ASPhotoModel
 
@@ -36,7 +37,7 @@
 
 - (void)initPhotoBrowser:(NSArray *)dataSource
 {
-    NSMutableArray *datas = [NSMutableArray array];
+    __block NSMutableArray *datas = [NSMutableArray array];
     [dataSource enumerateObjectsUsingBlock:^(ASPhotoModel *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if (obj.dataType == ASDataImage) {
@@ -131,6 +132,11 @@
 - (void)hide
 {
     [self.photoBrowser hide];
+}
+
+- (void)dealloc
+{
+    [[SDImageCache sharedImageCache] clearMemory]; // clear memory
 }
 
 @end
