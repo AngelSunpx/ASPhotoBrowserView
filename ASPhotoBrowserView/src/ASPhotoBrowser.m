@@ -42,7 +42,7 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if (obj.dataType == ASDataImage) {
             YBIBImageData *data = [YBIBImageData new];
-            data.defaultLayout.verticalFillType = YBIBImageFillTypeFullWidth;
+//            data.defaultLayout.verticalFillType = YBIBImageFillTypeFullWidth;
             
             if (obj.originalUrl)  data.imageURL = [NSURL URLWithString:obj.originalUrl];
             if (obj.originalPath) data.imagePath = obj.originalPath;

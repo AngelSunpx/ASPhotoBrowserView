@@ -77,28 +77,22 @@
             ASPhotoModel *photoModel = [[ASPhotoModel alloc] init];
             if (i == 0){
                 photoModel.dataType = 0;
-                photoModel.isRemote = NO;
-                photoModel.imageUrl = @"localImage0.jpg";
+                photoModel.imageName = @"localImage0.jpg";
             }else if (i == 1) {
                 photoModel.dataType = 0;
-                photoModel.isRemote = YES;
-                photoModel.imageUrl = @"http://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aec379310a55b31905caba3b43a98226cffc1748.jpg";
+                photoModel.originalUrl = @"http://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aec379310a55b31905caba3b43a98226cffc1748.jpg";
             }else if (i == 2) {
                 photoModel.dataType = 0;
-                photoModel.isRemote = NO;
-                photoModel.imageUrl = @"localImage1.gif";
+                photoModel.imageName = @"localImage1.gif";
             }else if (i == 3) {
                 photoModel.dataType = 1;
-                photoModel.isRemote = NO;
-                photoModel.imageUrl = @"localVideo0.mp4";
+                photoModel.originalPath = @"localVideo0.mp4";
             }else if (i == 4){
                 photoModel.dataType = 1;
-                photoModel.isRemote = YES;
-                photoModel.imageUrl = @"https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4";
+                photoModel.originalUrl = @"https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4";
             }else if (i == 5){
                 photoModel.dataType = 0;
-                photoModel.isRemote = YES;
-                photoModel.imageUrl = @"http://attachments.gfan.com/forum/attachments2/day_120501/1205012009f594464a3d69a145.jpg";
+                photoModel.originalUrl = @"http://attachments.gfan.com/forum/attachments2/day_120501/1205012009f594464a3d69a145.jpg";
             }
             [arr addObject:photoModel];
         }
@@ -118,11 +112,11 @@
         [photoPicker openCameraFromSender:self];
     }else if (indexPath.row == 2){
         ASPhotoPicker *photoPicker = [[ASPhotoPicker alloc] init];
-        photoPicker.allowTakePhoto = NO;
+        photoPicker.allowTakePhoto = YES;
         photoPicker.allowTakeVideo = YES;
         photoPicker.maxSelectCount = 9;
-        photoPicker.maxPreviewCount = 0;
-        photoPicker.maxRecordDuration = 30;
+        photoPicker.maxPreviewCount = 9;
+        photoPicker.maxRecordDuration = 15;
         photoPicker.allowOpenCamera = NO;
         photoPicker.circleProgressColor = [UIColor colorWithRed:86/255.0 green:119/255.0 blue:251/255.0 alpha:1];//238,120,0
         photoPicker.allowEditVideo = YES;
@@ -131,7 +125,7 @@
         photoPicker.selectImageBlock = ^(NSArray<UIImage *> * _Nullable images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
             NSLog(@"%@",images);
         };
-        [photoPicker openLibraryFromSender:self animated:NO];
+        [photoPicker openLibraryFromSender:self animated:YES];
     }
 }
 
